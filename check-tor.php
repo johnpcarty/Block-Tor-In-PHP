@@ -37,7 +37,7 @@ function check_tor($client_ip_address) {
     $bIPIsTor = False;
     
     // make sure it is an IPv4 address
-    if (strpos($client_ip_address,'.') > 0) {
+    if (filter_var($client_ip_address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 )) {
  
         // split the IP address into an array
         $client_ip_address_array = explode(".", $client_ip_address);
